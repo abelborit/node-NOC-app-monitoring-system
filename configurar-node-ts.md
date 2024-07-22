@@ -6,7 +6,7 @@
 npm i -D typescript @types/node ts-node-dev rimraf
 ```
 
-2. Inicializar el archivo de configuración de TypeScript ( Se puede configurar al gusto)
+2. Inicializar el archivo de configuración de TypeScript (Se puede configurar al gusto)
 
 ```
 npx tsc --init --outDir dist/ --rootDir src

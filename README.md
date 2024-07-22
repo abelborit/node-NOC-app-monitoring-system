@@ -56,7 +56,7 @@ Los data sources que manejaremos para grabar los logs son File System, MongoDB, 
 
 ### \* PASOS A REALIZAR:
 
-1. ejemplo
+1. En este proyecto se usará *ts-node-dev* en vez de *nodemon*. Recordar que si se trabaja con JavaScript entonces sí o sí sería trabajar con *nodemon* porque *ts-node-dev* es solo para TypeScript. Aquí se hace la variación a *ts-node-dev* para poder ver cómo funciona otro paquete de terceros.
 2. ejemplo
 3. ejemplo
 
