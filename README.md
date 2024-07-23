@@ -2,6 +2,8 @@
 
 ---
 
+## Parte I:
+
 # Temas puntuales de la sección
 
 ### ¿Qué veremos en esta sección?
@@ -85,5 +87,43 @@ Los data sources que manejaremos para grabar los logs son File System, MongoDB, 
   - En la arquitectura limpia, la capa de presentación se encarga de transformar los datos brutos que se reciben del backend en una representación visual o interactiva que el usuario pueda entender y trabajar. Esta capa se encarga de la lógica de presentación, como la estructura de la interfaz de usuario, la layouter de los elementos en la pantalla, el estilo y la forma en que se presentan los datos.
 
   - En cuanto a la comparación con la vista en MVC, sí, la capa de presentación en la arquitectura limpia es un símil a la vista en MVC. La vista en MVC es la capa que se encarga de renderizar los datos en una representación visual, y en la arquitectura limpia, la capa de presentación tiene una función similar, ya que se encarga de dar forma y estructura a los datos para su presentación al usuario.
+
+---
+
+## Parte II:
+
+# Temas puntuales de la sección
+
+### ¿Qué veremos en esta sección?
+
+En esta sección trabajaremos con el patron "Repository" para poder construir una forma intercambiable de orígenes de datos. Aquí veremos la configuración de variables de entorno, las cuales nos permite cambiar la aplicación si estamos en producción, staging, testing o development.
+
+- Puntualmente veremos:
+
+  - Entidades
+  - DataSources
+  - Repositorios
+  - Clases Abstractas
+  - Implementaciones
+  - Variables de entorno
+  - Validación de variables de entorno.
+
+### \* PASOS A REALIZAR:
+
+1. ejemplo
+2. ejemplo
+3. ejemplo
+
+### \* RECURSOS A USAR:
+
+- ejemplo
+- ejemplo
+- ejemplo
+
+### \* NOTAS:
+
+- ejemplo
+- ejemplo
+- ejemplo
 
 ---
