@@ -1,3 +1,21 @@
-const exampleName: string = "Mundo";
+import { ServerApp } from "./presentation/serverApp";
 
-console.log(`Hola ${exampleName}!!`);
+
+/* Classic Form */
+/* (() => {
+  main();
+})();
+
+function main() {
+  ServerApp.start();
+} */
+
+
+/* Arrow Function */
+const main = () => {
+  ServerApp.start();
+};
+
+(() => {
+  main();
+})();

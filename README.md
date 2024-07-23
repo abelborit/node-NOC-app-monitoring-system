@@ -56,14 +56,14 @@ Los data sources que manejaremos para grabar los logs son File System, MongoDB, 
 
 ### \* PASOS A REALIZAR:
 
-1. En este proyecto se usará *ts-node-dev* en vez de *nodemon*. Recordar que si se trabaja con JavaScript entonces sí o sí sería trabajar con *nodemon* porque *ts-node-dev* es solo para TypeScript. Aquí se hace la variación a *ts-node-dev* para poder ver cómo funciona otro paquete de terceros.
-2. ejemplo
+1. En este proyecto se usará _ts-node-dev_ en vez de _nodemon_. Recordar que si se trabaja con JavaScript entonces sí o sí sería trabajar con _nodemon_ porque _ts-node-dev_ es solo para TypeScript. Aquí se hace la variación a _ts-node-dev_ para poder ver cómo funciona otro paquete de terceros.
+2. Para levantar el servidor con la data colocar en una terminal `npm run server:data` y para levantar el proyecto colocar en otra terminal `npm run dev`
 3. ejemplo
 
 ### \* RECURSOS A USAR:
 
-- ejemplo
-- ejemplo
+- Paquete `cron` usando `npm i cron` desde `https://www.npmjs.com/package/cron`
+- Paquete `json-server` usando `npm install json-server@0.17.3` desde `https://www.npmjs.com/package/json-server`
 - ejemplo
 
 ### \* NOTAS:
@@ -77,5 +77,13 @@ Los data sources que manejaremos para grabar los logs son File System, MongoDB, 
 - La arquitectura limpia se enfoca en separar las diferentes capas de tu aplicación (entidades, casos de uso, presentación, bases de datos) para mantener un código limpio, modular y fácil de mantener.
 
 - Los patrones de diseño son soluciones probadas a problemas comunes en el desarrollo de software.
+
+- Cuando hablamos de la capa de "presentación" o "presentation" ¿Podríamos hacer un simil a lo que sería la vista en la conocida arquitectura MVC? Digamos que en el backend la vista en el MVC puede ser un json, un pdf, una imagen, un archivo de texto plano, html, etc. ¿Cierto? Cualquier representación "gráfica" de los datos. ¿Verdad?
+
+  - Sí, la capa de presentación en la arquitectura limpia es similar a la vista en la arquitectura MVC. La capa de presentación es responsable de dar forma y estructura a los datos que se van a presentar al usuario, de manera similar a como la vista en MVC se encarga de renderizar los datos en una representación visual.
+
+  - En la arquitectura limpia, la capa de presentación se encarga de transformar los datos brutos que se reciben del backend en una representación visual o interactiva que el usuario pueda entender y trabajar. Esta capa se encarga de la lógica de presentación, como la estructura de la interfaz de usuario, la layouter de los elementos en la pantalla, el estilo y la forma en que se presentan los datos.
+
+  - En cuanto a la comparación con la vista en MVC, sí, la capa de presentación en la arquitectura limpia es un símil a la vista en MVC. La vista en MVC es la capa que se encarga de renderizar los datos en una representación visual, y en la arquitectura limpia, la capa de presentación tiene una función similar, ya que se encarga de dar forma y estructura a los datos para su presentación al usuario.
 
 ---
