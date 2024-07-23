@@ -10,12 +10,12 @@ export enum LogSeverityLevel {
 export class LogEntity {
   /* aquí será nuestro sistema de log, vamos a tener lo que queremos registrar en la base de datos de nuestra aplicación */
 
-  public levelSeverity: LogSeverityLevel;
+  public severityLevel: LogSeverityLevel;
   public message: string;
   public createdAt: Date;
 
   constructor(levelSeverity: LogSeverityLevel, message: string) {
-    this.levelSeverity = levelSeverity;
+    this.severityLevel = levelSeverity;
     this.message = message;
     this.createdAt = new Date();
   }
