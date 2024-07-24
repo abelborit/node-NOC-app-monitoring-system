@@ -19,4 +19,18 @@ export class LogEntity {
     this.message = message;
     this.createdAt = new Date();
   }
+
+  /* en base al dataAsAJSON que se le mande (que sería algo como "{ "severityLevel": "low", "message": "Hola Mundo", "createdAt": "8721398712930" }"), entonces puedo crear instancias de tipo LogEntity para obtener sus propiedades y hacer algo con ellas */
+  static fromJSON = (dataAsAJSON: string): LogEntity => {
+    const { severityLevel, message, createdAt } = JSON.parse(dataAsAJSON);
+
+    // if (!severityLevel) throw new Error("severityLevel is required!");
+    // if (!message) throw new Error("message is required!");
+    // if (!createdAt) throw new Error("createdAt is required!");
+
+    const newLog = new LogEntity(severityLevel, message);
+    newLog.createdAt = new Date(createdAt); // crear la fecha basado en el string que viene de createdAt
+
+    return newLog;
+  };
 }
