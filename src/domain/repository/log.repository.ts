@@ -7,6 +7,6 @@ import { LogEntity, LogSeverityLevel } from "../entities/log.entity";
 /* este LogRepository servirá para hacer de puente al LogDatasource ya que si en algún momento se llega a cambiar el datasource entonces no se tendrá que cambiar los casos de uso u otros cambios adicionales debido al cambio del datasource */
 export abstract class LogRepository {
   /* aquí se está colocando el tipo de dato LogEntity lo cual es una clase, pero las clases también pueden servir para definir un tipo de dato así como funcionaría una interface */
-  abstract saveLog(log: LogEntity): Promise<void>;
+  abstract saveLog(newLog: LogEntity): Promise<void>;
   abstract getLogs(severityLevel: LogSeverityLevel): Promise<LogEntity[]>;
 }

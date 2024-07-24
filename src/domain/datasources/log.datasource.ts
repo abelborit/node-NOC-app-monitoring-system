@@ -7,6 +7,6 @@ export abstract class LogDatasource {
   /* cualquier origen de datos va a tener que implementar todos los métodos abstractos que coloquemos aquí */
 
   /* aquí se está colocando el tipo de dato LogEntity lo cual es una clase, pero las clases también pueden servir para definir un tipo de dato así como funcionaría una interface */
-  abstract saveLog(log: LogEntity): Promise<void>;
+  abstract saveLog(newLog: LogEntity): Promise<void>;
   abstract getLogs(severityLevel: LogSeverityLevel): Promise<LogEntity[]>;
 }
