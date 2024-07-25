@@ -1,5 +1,11 @@
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
+import { LogRepositoryImplementation } from "../infrastructure/repositories/log-implementation.repository";
 import { CronService } from "./cron/cron-service";
+
+const fileSystemLogRepository = new LogRepositoryImplementation(
+  new FileSystemDatasource()
+);
 
 export class ServerApp {
   constructor() {}
@@ -13,12 +19,13 @@ export class ServerApp {
       // const date = new Date();
       // console.log("Every 3 seconds", date);
 
-      const url = "http://google.com";
-      // const url = "http://localhost:3000/posts"
+      // const url = "http://google.com";
+      const url = "http://localhost:3000/posts"
 
       new CheckService(
         () => console.log(`Dependencies Injection: ${url} is ok!✅`),
-        (error) => console.log(`Dependencies Injection: ${error}❌`)
+        (error) => console.log(`Dependencies Injection: ${error}❌`),
+        fileSystemLogRepository
       ).execute(url);
     });
   }

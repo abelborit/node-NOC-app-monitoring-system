@@ -1,3 +1,5 @@
+import { LogEntity, LogSeverityLevel } from "../../entities/log.entity";
+import { LogRepository } from "../../repository/log.repository";
 interface CheckServiceUseCase {
   execute(url: string): Promise<boolean>;
 }
@@ -10,7 +12,9 @@ export class CheckService implements CheckServiceUseCase {
   constructor(
     /* se coloca como readonly porque no queremos cambiar accidentalmente successCalback y errorCalback en mi función execute */
     private readonly successCalback: SuccessCalback,
-    private readonly errorCalback: ErrorCalback
+    private readonly errorCalback: ErrorCalback,
+    /* casi siempre los casos de uso van a estar implementando o inyectando algún tipo de repositorio, no directamente trabajando con los datasources, sino mediante los repositorios. Sería "casos de uso -> repositorio -> datasource" */
+    private readonly logRepository: LogRepository
   ) {}
 
   public async execute(url: string): Promise<boolean> {
@@ -19,13 +23,21 @@ export class CheckService implements CheckServiceUseCase {
 
       if (!request.ok) throw new Error(`Error on check service ${url}`);
 
+      const newLog = new LogEntity(
+        LogSeverityLevel.low,
+        `Service ${url} working!`
+      );
+      this.logRepository.saveLog(newLog);
       this.successCalback();
       // console.log(`${url} is ok!✅`);
 
       return true;
     } catch (error) {
+      const errorMessage = `${error} in ${url}`;
+      const newLog = new LogEntity(LogSeverityLevel.high, errorMessage);
+      this.logRepository.saveLog(newLog);
       // console.log(`${error}❌`);
-      this.errorCalback(`${error}`);
+      this.errorCalback(errorMessage);
 
       return false;
     }
