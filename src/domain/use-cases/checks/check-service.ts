@@ -4,8 +4,9 @@ interface CheckServiceUseCase {
   execute(url: string): Promise<boolean>;
 }
 
-type SuccessCalback = () => void;
-type ErrorCalback = (error: string) => void;
+/* puede o no puede venir el successCalback y errorCalback */
+type SuccessCalback = (() => void) | undefined;
+type ErrorCalback = ((error: string) => void) | undefined;
 
 export class CheckService implements CheckServiceUseCase {
   /* la inyección de dependencias se realiza en un constructor y si se está usando JavaScript puro entonces se podría hacer en un Factory Function donde el builder del factory recibe las dependencias y luego ya crea la función que ya viene con las dependencias inyectadas */
@@ -28,7 +29,7 @@ export class CheckService implements CheckServiceUseCase {
         `Service ${url} working!`
       );
       this.logRepository.saveLog(newLog);
-      this.successCalback();
+      this.successCalback && this.successCalback();
       // console.log(`${url} is ok!✅`);
 
       return true;
@@ -37,7 +38,7 @@ export class CheckService implements CheckServiceUseCase {
       const newLog = new LogEntity(LogSeverityLevel.high, errorMessage);
       this.logRepository.saveLog(newLog);
       // console.log(`${error}❌`);
-      this.errorCalback(errorMessage);
+      this.errorCalback && this.errorCalback(errorMessage);
 
       return false;
     }

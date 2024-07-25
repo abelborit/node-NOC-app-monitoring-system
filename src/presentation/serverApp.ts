@@ -20,13 +20,19 @@ export class ServerApp {
       // console.log("Every 3 seconds", date);
 
       // const url = "http://google.com";
-      const url = "http://localhost:3000/posts"
+      const url = "http://localhost:3000/posts";
 
       new CheckService(
-        () => console.log(`Dependencies Injection: ${url} is ok!✅`),
-        (error) => console.log(`Dependencies Injection: ${error}❌`),
+        () => console.log(`Dependencies Injection: ${url} is ok!✅`), // undefined
+        (error) => console.log(`Dependencies Injection: ${error}❌`), // undefined
         fileSystemLogRepository
       ).execute(url);
+
+      // new CheckService(
+      //   undefined, // () => console.log(`Dependencies Injection: ${url} is ok!✅`)
+      //   undefined, // (error) => console.log(`Dependencies Injection: ${error}❌`)
+      //   fileSystemLogRepository
+      // ).execute(url);
     });
   }
 }
