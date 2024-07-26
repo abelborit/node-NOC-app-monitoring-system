@@ -116,7 +116,8 @@ En esta sección trabajaremos con el patron "Repository" para poder construir un
 
 ### \* RECURSOS A USAR:
 
-- ejemplo
+- Paquete `dotenv` usando `npm i dotenv` desde `https://www.npmjs.com/package/dotenv` para leer las variables de entorno
+- Paquete `env-var` usando `npm i env-var` desde `https://www.npmjs.com/package/env-var` para hacer validaciones de nuestras variables o qué tipo de dato van a regresar (string, number, etc)
 - ejemplo
 - ejemplo
 
