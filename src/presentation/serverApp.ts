@@ -14,13 +14,16 @@ export class ServerApp {
   public static start() {
     console.log("Server running...✅");
 
+    /* -- MANDAR EMAIL -- */
+
+    /* -- TAREA DE LOS LOGS -- */
     /* cada 3 segundos */
     CronService.createJob("*/3 * * * * *", () => {
       // const date = new Date();
       // console.log("Every 3 seconds", date);
 
-      // const url = "http://google.com";
-      const url = "http://localhost:3000/posts";
+      const url = "http://google.com";
+      // const url = "http://localhost:3000/posts";
 
       new CheckService(
         () => console.log(`Dependencies Injection: ${url} is ok!✅`), // undefined

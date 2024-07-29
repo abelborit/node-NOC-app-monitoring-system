@@ -128,3 +128,42 @@ En esta sección trabajaremos con el patron "Repository" para poder construir un
 - ejemplo
 
 ---
+
+## Parte III:
+
+# Temas puntuales de la sección
+
+### ¿Qué veremos en esta sección?
+
+En esta sección aprenderemos a enviar correos electrónicos con y sin archivos adjuntos para Gmail y NodeMailer. Al final de esta parte, se podrá enviar correos electrónicos programados con la información que se necesita.
+
+- Puntualmente veremos:
+
+  - Casos de Uso
+  - Servicios
+  - Inyecciones de dependencias
+  - Configuración de password en Gmail (secret keys)
+  - NodeMailer (paquete de terceros para mandar correos certificados)
+  - SMTP (Simple Mail Transfer Protocol - Protocolo Simple de Transferencia de Correo)
+    - Para poder mandar correos certificados y que no vayan a la bandeja de SPAM
+
+
+### \* PASOS A REALIZAR:
+
+1. ejemplo
+2. ejemplo
+3. ejemplo
+
+### \* RECURSOS A USAR:
+
+- ejemplo
+- ejemplo
+- ejemplo
+
+### \* NOTAS:
+
+- ejemplo
+- ejemplo
+- ejemplo
+
+---
