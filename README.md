@@ -182,9 +182,31 @@ En esta sección aprenderemos a enviar correos electrónicos con y sin archivos 
 ### \* NOTAS:
 
 - Para este ejercicio se podría usar nuestra cuenta de gmail y evitar hacer algún pago y aquí nosotros queremos mandar un correo autenticado desde nuestra cuenta de gmail pero desde esta aplicación de node y así podemos crear un nuevo correo de gmail y usarlo para el envío de estos correos electrónicos automatizados. Para hacer eso hay que hacer unas configuraciones que es para las contraseñas y unas políticas de seguridad de nuestra cuenta de gmail, no es complicado pero hay que hacerlas en orden para poder usar `nodemailer` y también estamos usando las variables de entorno para poder hacer un poco más segura nuestra aplicación y datos sensibles.
+
   - Para la verificación en dos pasos: https://myaccount.google.com/security
+
   - Para establecer un nivel de acceso a nuestra aplicación: https://myaccount.google.com/u/0/apppasswords la cual se colocará en las variables de entorno en _MAILER_SECRET_KEY_
+
 - ejemplo
 - ejemplo
 
 ---
+
+# Resumen de lo visto anteriormente:
+
+- Nuestro app.ts tiene la función anónima autoinvocada y es el inicio de nuestra aplicación.
+
+- La estructura de nuestro directorio es con la siguiente idea:
+
+  - `config` objetos globales o básicamente configuraciones globales, si se hacen llamadas HTTP entonces ahí se podrían colocar, etc.
+
+  - `domain` son las reglas con las cuales van a regir mi aplicación a un nivel macro, alejándose del frontend o capas más externas. En este caso, esta capa domain tendrá:
+
+    - `datasources` (orígenes de datos o bases de datos)
+    - `entities` (entidades que se apegan más a las bases de datos)
+    - `repository` (repositorio que es la forma en cómo quiero trabajar con los datasources o bases de datos)
+    - `use-cases` (casos de uso)
+
+  - `infrastructure` es donde ya están nuestras implementaciones de nuestro repository y datasources. En el datasources es donde literalmente hacemos el trabajo de unir nuestro origen de datos, procesándolo, recuperando información, etc. En los repositories trabajan con el datasources y aquí nos permite cambiar el datasource y poder interactuar con él.
+
+  - `presentation` es lo que está más cerca a lo que el usuario puede ver como por ejemplo aplicaciones de consola, etc. Aquí en "email.service.ts" pareciera que no tiene dependencias pero sí tiene una que es llamada _dependencia oculta_ porque por más que no se le esté inyectando una dependencia directa en el constructor, en ese archivo podemos ver que hace uso de las variables de entorno y esas se están importando porque son datos que se necesitan enviar y si no se envían entonces dará un error, entonces se puede realizar una inyección de esas variables para tenerlo de forma explícita y ya no como _dependencia oculta_ sino una explícita que sí o sí se tiene que envíar.

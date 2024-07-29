@@ -1,5 +1,5 @@
 import { ServerApp } from "./presentation/serverApp";
-import { envs } from "./config/plugins/envs.plugin";
+// import { envs } from "./config/plugins/envs.plugin";
 
 /* Classic Form */
 /* (() => {
@@ -17,8 +17,9 @@ const main = () => {
 
 (() => {
   main();
-  console.log(envs.PORT);
-  console.log(envs.MAILER_EMAIL);
-  console.log(envs.MAILER_SECRET_KEY);
-  console.log(envs.PROD);
+  // console.log(envs.PORT);
+  // console.log(envs.MAILER_SERVICE);
+  // console.log(envs.MAILER_EMAIL);
+  // console.log(envs.MAILER_SECRET_KEY);
+  // console.log(envs.PROD);
 })();
