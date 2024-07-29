@@ -19,11 +19,13 @@ export class ServerApp {
     const emailService = new EmailService();
     emailService.sendEmail({
       to: "",
-      subject: "Logs del sistema",
+      subject: "Logs del servidor",
       htmlBody: `<h3>Logs del Sistema - NOC</h3>
       <p>Texto de prueba</p>
       <p>Ver logs adjuntos</p>`,
     });
+
+    emailService.sendEmailWithFileSystemLogs(["", ""]);
 
     /* -- TAREA DE LOS LOGS -- */
     /* cada 3 segundos */
