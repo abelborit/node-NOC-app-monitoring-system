@@ -16,7 +16,7 @@ export class ServerApp {
     console.log("Server running...✅");
 
     /* -- MANDAR EMAIL -- */
-    const emailService = new EmailService();
+    const emailService = new EmailService(fileSystemLogRepository);
     emailService.sendEmail({
       to: "",
       subject: "Logs del servidor",
