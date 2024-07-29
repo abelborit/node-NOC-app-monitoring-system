@@ -1,4 +1,5 @@
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { SendEmailLogsService } from "../domain/use-cases/email/send-email-logs-service";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
 import { LogRepositoryImplementation } from "../infrastructure/repositories/log-implementation.repository";
 import { CronService } from "./cron/cron-service";
@@ -8,6 +9,9 @@ const fileSystemLogRepository = new LogRepositoryImplementation(
   new FileSystemDatasource()
 );
 
+/* ya no sería necesario mandarle nuestro repository aquí porque nuestro EmailService solo mandará nuestro email y nada más y nuestro caso de uso será quien lo haga ya que ahí se manda el repository */
+const emailService = new EmailService();
+
 export class ServerApp {
   constructor() {}
 
@@ -16,18 +20,25 @@ export class ServerApp {
     console.log("Server running...✅");
 
     /* -- MANDAR EMAIL -- */
-    const emailService = new EmailService(fileSystemLogRepository);
-    emailService.sendEmail({
-      to: "",
-      subject: "Logs del servidor",
-      htmlBody: `<h3>Logs del Sistema - NOC</h3>
-      <p>Texto de prueba</p>
-      <p>Ver logs adjuntos</p>`,
-    });
+    /* mandar correos con nuestro use case para emails */
+    /* se comenta para no generar ruido en la terminal */
+    // new SendEmailLogsService(emailService, fileSystemLogRepository).execute([
+    //   "", // correo 1
+    //   "", // correo 2
+    // ]);
 
-    emailService.sendEmailWithFileSystemLogs(["", ""]);
+    // emailService.sendEmail({
+    //   to: "",
+    //   subject: "Logs del servidor",
+    //   htmlBody: `<h3>Logs del Sistema - NOC</h3>
+    //   <p>Texto de prueba</p>
+    //   <p>Ver logs adjuntos</p>`,
+    // });
+
+    // emailService.sendEmailWithFileSystemLogs(["", ""]);
 
     /* -- TAREA DE LOS LOGS -- */
+    /* se comenta para no generar ruido en la terminal */
     /* cada 3 segundos */
     // CronService.createJob("*/3 * * * * *", () => {
     //   // const date = new Date();

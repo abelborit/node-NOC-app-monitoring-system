@@ -26,7 +26,7 @@ export class EmailService {
     },
   });
 
-  constructor(private logRepository: LogRepository) {}
+  constructor() {}
 
   async sendEmail(sendEmailOptions: SendEmailOptions): Promise<boolean> {
     const { to, subject, htmlBody, attachments = [] } = sendEmailOptions;
@@ -40,23 +40,10 @@ export class EmailService {
       });
 
       console.log(sentInformation);
-      const log = new LogEntity({
-        severityLevel: LogSeverityLevel.low,
-        message: "Email sent",
-        origin: "email.service.ts",
-      });
-      this.logRepository.saveLog(log);
 
       return true;
     } catch (error) {
       console.log(error);
-
-      const log = new LogEntity({
-        severityLevel: LogSeverityLevel.high,
-        message: "Email not sent",
-        origin: "email.service.ts",
-      });
-      this.logRepository.saveLog(log);
 
       return false;
     }
