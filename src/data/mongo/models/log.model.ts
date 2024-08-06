@@ -34,3 +34,11 @@ const logSchema = new mongoose.Schema({
 
 /* modelo para poder interactuar con mongo. El nombre que aparecerá será "logs" porque mongoose por defecto toma el nombre del modelo y le aumenta una "s" pero eso igual se puede colocar según el nombre que nosotros queramos */
 export const LogModel = mongoose.model("Log", logSchema);
+
+/* también se puede tipar lo que regresa el model ya que tipar lo que retorna el modelo es una buena práctica en TypeScript. De esta manera, se puede asegurar que el modelo tenga las propiedades y métodos correctos. Además, en este caso, al extender la interfaz LogEntity e importar el tipo Document de Mongoose, también se está garantizando que el modelo tenga las propiedades y métodos necesarios para ser un modelo de Mongoose */
+
+// import { LogEntity } from "../../../domain/entities/log.entity";
+
+// export interface MongoLog extends LogEntity, Document {}
+
+// export const LogModel = mongoose.model<MongoLog>("Log", logSchema);

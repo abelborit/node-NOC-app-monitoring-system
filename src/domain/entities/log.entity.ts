@@ -55,4 +55,23 @@ export class LogEntity {
 
     return newLog;
   };
+
+  /* crear un nuevo LogEntity basado en un objeto que es similar a lo que se tiene que retornar en getLogs. Esto se hace para poder adaptar de un objeto a otro */
+  static fromObject = (dataAsAObject: {[key:string]:any}): LogEntity => {
+    const { severityLevel, message, createdAt, origin } =
+    dataAsAObject;
+
+    // if (!severityLevel) throw new Error("severityLevel is required!");
+    // if (!message) throw new Error("message is required!");
+    // if (!createdAt) throw new Error("createdAt is required!");
+
+    const newLog = new LogEntity({
+      severityLevel,
+      message,
+      createdAt,
+      origin, // por ejemplo se podría colocar "log.entity.ts" u otro archivo en donde se llame la instancia de LogEntity
+    });
+
+    return newLog;
+  };
 }
