@@ -35,7 +35,7 @@ const main = async () => {
   // const getLogs = await LogModel.find();
   // console.log(getLogs);
 
-  // ServerApp.start();
+  ServerApp.start();
 };
 
 (() => {

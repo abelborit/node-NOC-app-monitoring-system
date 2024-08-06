@@ -5,7 +5,7 @@ import { LogRepositoryImplementation } from "../infrastructure/repositories/log-
 import { CronService } from "./cron/cron-service";
 import { EmailService } from "./email/email.service";
 
-const fileSystemLogRepository = new LogRepositoryImplementation(
+const LogRepository = new LogRepositoryImplementation(
   new FileSystemDatasource()
 );
 
@@ -22,7 +22,7 @@ export class ServerApp {
     /* -- MANDAR EMAIL -- */
     /* mandar correos con nuestro use case para emails */
     /* se comenta para no generar ruido en la terminal */
-    // new SendEmailLogsService(emailService, fileSystemLogRepository).execute([
+    // new SendEmailLogsService(emailService, LogRepository).execute([
     //   "", // correo 1
     //   "", // correo 2
     // ]);
@@ -40,24 +40,24 @@ export class ServerApp {
     /* -- TAREA DE LOS LOGS -- */
     /* se comenta para no generar ruido en la terminal */
     /* cada 3 segundos */
-    // CronService.createJob("*/3 * * * * *", () => {
-    //   // const date = new Date();
-    //   // console.log("Every 3 seconds", date);
+    CronService.createJob("*/3 * * * * *", () => {
+      // const date = new Date();
+      // console.log("Every 3 seconds", date);
 
-    //   const url = "http://google.com";
-    //   // const url = "http://localhost:3000/posts";
+      const url = "http://google.com";
+      // const url = "http://localhost:3000/posts";
 
-    //   new CheckService(
-    //     () => console.log(`Dependencies Injection: ${url} is ok!✅`), // undefined
-    //     (error) => console.log(`Dependencies Injection: ${error}❌`), // undefined
-    //     fileSystemLogRepository
-    //   ).execute(url);
+      new CheckService(
+        () => console.log(`Dependencies Injection: ${url} is ok!✅`), // undefined
+        (error) => console.log(`Dependencies Injection: ${error}❌`), // undefined
+        LogRepository
+      ).execute(url);
 
-    //   // new CheckService(
-    //   //   undefined, // () => console.log(`Dependencies Injection: ${url} is ok!✅`)
-    //   //   undefined, // (error) => console.log(`Dependencies Injection: ${error}❌`)
-    //   //   fileSystemLogRepository
-    //   // ).execute(url);
-    // });
+      // new CheckService(
+      //   undefined, // () => console.log(`Dependencies Injection: ${url} is ok!✅`)
+      //   undefined, // (error) => console.log(`Dependencies Injection: ${error}❌`)
+      //   LogRepository
+      // ).execute(url);
+    });
   }
 }
