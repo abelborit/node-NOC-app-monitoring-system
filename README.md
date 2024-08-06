@@ -269,6 +269,8 @@ Esta sección es para integrar las bases de datos MongoDB y PostgreSQL en nuestr
 - Al hacer lo anterior entonces es medio tedioso tener una terminal abierta aparte y luego el docker desktop también porque se tiene que levantar y luego cerrar con `ctrl + c` y así sucesivamente, entonces podemos utilizar el comando `docker compose up -d` o `docker compose up --detach` lo que significa que todo va a correr pero desligado de esa terminal, lo que quiere decir que ya se puede cerrar esa terminal y nuestro docker sigue corriendo.
 - Ahora, abrir MongoDB Compass y si intentamos conectarnos directamente usando lo que nos viene por defecto `mongodb://localhost:27017` entonces nos saldría un error porque nosotros configuramos variables de entorno. NOTA: si nosotros configuramos por ejemplo 27058:27017 entonces en la url iría `mongodb://localhost:27058`. PAra solucionar lo del error mencionado, ir a Advanced Connection Options -> Authentication -> Username/Password y ahí colocaremos lo que configuramos en nuestras variables de entorno -> Save & Connect y colocar por ejemplo "NOC-App-MongoDB"
 
+- Conectar nuestra aplicación de NODE con MongoDB y uno de los paquetes más comunes es usar `https://mongoosejs.com/` que es como crear una abstracción de la base de datos y nosotros cuando queramos insertar en la base de datos lo haremos mediante unos objetos de Mongoose y esto ayuda mucho a asegurarnos de protegernos de inyección de SQLs, la data sigue cierto estándar que nosotros queremos, grabar cierta información que nosotros queremos, manejar los id, etc
+
 ### \* RECURSOS A USAR:
 
 - Imagen de mongo: https://hub.docker.com/_/mongo

@@ -1,3 +1,5 @@
+import { envs } from "./config/plugins/envs.plugin";
+import { MongoDataBase } from "./data/mongo";
 import { ServerApp } from "./presentation/serverApp";
 // import { envs } from "./config/plugins/envs.plugin";
 
@@ -11,8 +13,15 @@ function main() {
 } */
 
 /* Arrow Function */
-const main = () => {
-  ServerApp.start();
+const main = async () => {
+  /* antes de ejecutar el servidor podemos asegurarnos de tener la conexión a la base de datos */
+
+  await MongoDataBase.connect({
+    mongoUrl: envs.MONGO_URL,
+    databaseName: envs.MONGO_DB_NAME,
+  });
+
+  // ServerApp.start();
 };
 
 (() => {
