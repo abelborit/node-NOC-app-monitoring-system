@@ -32,5 +32,5 @@ const logSchema = new mongoose.Schema({
   },
 });
 
-/* modelo para poder interactuar con mongo */
+/* modelo para poder interactuar con mongo. El nombre que aparecerá será "logs" porque mongoose por defecto toma el nombre del modelo y le aumenta una "s" pero eso igual se puede colocar según el nombre que nosotros queramos */
 export const LogModel = mongoose.model("Log", logSchema);

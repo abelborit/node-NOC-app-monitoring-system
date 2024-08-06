@@ -271,6 +271,13 @@ Esta sección es para integrar las bases de datos MongoDB y PostgreSQL en nuestr
 
 - Conectar nuestra aplicación de NODE con MongoDB y uno de los paquetes más comunes es usar `https://mongoosejs.com/` que es como crear una abstracción de la base de datos y nosotros cuando queramos insertar en la base de datos lo haremos mediante unos objetos de Mongoose y esto ayuda mucho a asegurarnos de protegernos de inyección de SQLs, la data sigue cierto estándar que nosotros queremos, grabar cierta información que nosotros queremos, manejar los id, etc
 
+- Pasos a realizar para utilizar la aplicación con mongodb y mongoose:
+
+  1. Abrir docker desktop
+  2. Abrir una terminal aparte y colocar `docker compose up` o `docker compose up -d` o `docker compose up --detach`
+  3. Levantar la aplicación con `npm run dev`
+  4. Realizar el guardado de información u obtener información de la base de datos, etc
+
 ### \* RECURSOS A USAR:
 
 - Imagen de mongo: https://hub.docker.com/_/mongo
