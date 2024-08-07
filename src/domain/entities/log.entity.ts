@@ -39,7 +39,7 @@ export class LogEntity {
   /* en base al dataAsAJSON que se le mande (que sería algo como "{ "severityLevel": "low", "message": "Hola Mundo", "createdAt": "8721398712930" }"), entonces puedo crear instancias de tipo LogEntity para obtener sus propiedades y hacer algo con ellas */
   static fromJSON = (dataAsAJSON: string): LogEntity => {
     const { severityLevel, message, createdAt, origin } =
-      JSON.parse(dataAsAJSON);
+      JSON.parse(dataAsAJSON === "" ? "{}" : dataAsAJSON);
 
     // if (!severityLevel) throw new Error("severityLevel is required!");
     // if (!message) throw new Error("message is required!");

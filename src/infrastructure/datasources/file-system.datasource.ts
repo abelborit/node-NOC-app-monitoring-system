@@ -51,6 +51,7 @@ export class FileSystemDatasource implements LogDatasource {
 
   private getLogsFromFile = (path: string): LogEntity[] => {
     const content = fs.readFileSync(path, "utf-8");
+    if(content === "") return [];
 
     /* barrer todas las líneas de mi content. Recordar que sería algo como:
     { "severityLevel": "low", "message": "Hola Mundo", "createdAt": "8721398712930" }\n
