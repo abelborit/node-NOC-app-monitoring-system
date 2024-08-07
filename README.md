@@ -275,8 +275,9 @@ Esta sección es para integrar las bases de datos MongoDB y PostgreSQL en nuestr
 
   1. Abrir docker desktop
   2. Abrir una terminal aparte y colocar `docker compose up` o `docker compose up -d` o `docker compose up --detach`
-  3. Levantar la aplicación con `npm run dev`
-  4. Realizar el guardado de información u obtener información de la base de datos, etc
+  3. Abrir mongo compass y conectar la base de datos
+  4. Levantar la aplicación con `npm run dev`
+  5. Realizar el guardado de información u obtener información de la base de datos, realizar las configuraciones necesarias, cambiar la lógica, etc
 
 ### \* RECURSOS A USAR:
 
