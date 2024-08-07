@@ -67,6 +67,9 @@ export class FileSystemDatasource implements LogDatasource {
     /* forma corta porque el argumento que se le envía es el mismo al que se recibe */
     const logs = content.split("\n").map(LogEntity.fromJSON);
 
+    /* podemos añadir un filter antes del map asegurando de que solo se cogerán las líneas del fichero logs que no estén vacías, porque hay un error que ocurre por cómo se guardan los logs con el método saveLog de file-system.datasource.ts y cómo se leen del fichero. Al guardar un log se añade un salto de linea en el método saveLog, de manera que al final del fichero logs.log queda una línea vacía al final. Al leer los registros con el método getLogsFromFile, el último elemento mapeado estará vacío saltando el error */
+    // const logs = content.split('\n').filter(log => log.trim() !== '').map(log => LogEntity.fromJSON(log))
+
     return logs;
   };
 
