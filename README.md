@@ -237,8 +237,11 @@ Esta sección es para integrar las bases de datos MongoDB y PostgreSQL en nuestr
 
 - Necesarias:
 
-  1. Se necesita tener instalado [MongoDB Compass](https://www.mongodb.com/try/download/compass)
-  2. Se necesita tener instalado [Docker Desktop](https://www.docker.com/get-started/)
+  1. Se necesita tener instalado (para las imágenes) [Docker Desktop](https://www.docker.com/get-started/)
+  2. Se necesita tener instalado (para mongo) [MongoDB Compass](https://www.mongodb.com/try/download/compass)
+  3. Se necesita tener instalado (para postgres) [Table Plus](https://tableplus.com/)
+  4. Alternativa para Table Plus (para postgres) [DBeaver (Community)](https://dbeaver.io/)
+  5. Cualquiera de los dos ORM [TypeORM](https://typeorm.io/) o [Prisma](https://www.prisma.io/)
 
 - Extensiones de VSCode (Instalaciones adicionales)
 
