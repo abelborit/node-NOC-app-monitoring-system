@@ -282,6 +282,7 @@ Esta sección es para integrar las bases de datos MongoDB y PostgreSQL en nuestr
 ### \* RECURSOS A USAR:
 
 - Imagen de mongo: https://hub.docker.com/_/mongo
+- Imagen de postgres: https://hub.docker.com/_/postgres
 - ejemplo
 - ejemplo
 
