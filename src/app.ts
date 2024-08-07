@@ -1,3 +1,4 @@
+import { PrismaClient } from "@prisma/client";
 import { envs } from "./config/plugins/envs.plugin";
 import { LogModel, MongoDataBase } from "./data/mongo";
 import { ServerApp } from "./presentation/serverApp";
@@ -19,6 +20,27 @@ const main = async () => {
     mongoUrl: envs.MONGO_URL,
     databaseName: envs.MONGO_DB_NAME,
   });
+
+  /* al colocar en la terminal el comando de "npx prisma migrate dev --name init" nos creó este cliente y ahí está toda la configuración basada en el esquema que nosotros hemos definido lo cual ya sabe todos los objetos que están internamente */
+  const prisma = new PrismaClient();
+  // const newLog = await prisma.logModel.create({
+  //   data: {
+  //     message: "Test message from Prisma",
+  //     origin: "app.ts",
+  //     severityLevel: "LOW",
+  //   },
+  // });
+  // console.log(newLog);
+
+  // const getLogs = await prisma.logModel.findMany();
+  // console.log(getLogs);
+
+  // const getLogs = await prisma.logModel.findMany({
+  //   where: {
+  //     severityLevel: "HIGH",
+  //   },
+  // });
+  // console.log(getLogs);
 
   /* crear un documento/registro en una colección/tabla que en mongo una colección = tablas de base de datos relacionales y los documentos = registros en una base de datos relacional */
   /* trabajar con el modelo de LogModel al momento de hacer inserciones en nuestra base de datos, que sería una colección de Logs */
