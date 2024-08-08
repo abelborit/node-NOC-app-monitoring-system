@@ -1,4 +1,5 @@
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { CheckServiceMultiple } from "../domain/use-cases/checks/check-service-multiple";
 import { SendEmailLogsService } from "../domain/use-cases/email/send-email-logs-service";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
 import { MongoDatasource } from "../infrastructure/datasources/mongo.datasource";
@@ -7,14 +8,30 @@ import { LogRepositoryImplementation } from "../infrastructure/repositories/log-
 import { CronService } from "./cron/cron-service";
 import { EmailService } from "./email/email.service";
 
+/* -------------------------------------------------------------------------------- */
 const LogRepository = new LogRepositoryImplementation(
   // new FileSystemDatasource()
-  // new MongoDatasource()
-  new PostgresDatasource()
+  new MongoDatasource()
+  // new PostgresDatasource()
 );
+/* -------------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------------- */
 /* ya no sería necesario mandarle nuestro repository aquí porque nuestro EmailService solo mandará nuestro email y nada más y nuestro caso de uso será quien lo haga ya que ahí se manda el repository */
 const emailService = new EmailService();
+/* -------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------- */
+const FileSystemRepository = new LogRepositoryImplementation(
+  new FileSystemDatasource()
+);
+
+const MongoRepository = new LogRepositoryImplementation(new MongoDatasource());
+
+const PostgressRepository = new LogRepositoryImplementation(
+  new PostgresDatasource()
+);
+/* -------------------------------------------------------------------------------- */
 
 export class ServerApp {
   constructor() {}
@@ -23,6 +40,7 @@ export class ServerApp {
   public static start() {
     console.log("Server running...✅");
 
+    /* -------------------------------------------------------------------------------- */
     /* -- MANDAR EMAIL -- */
     /* mandar correos con nuestro use case para emails */
     /* se comenta para no generar ruido en la terminal */
@@ -40,7 +58,9 @@ export class ServerApp {
     // });
 
     // emailService.sendEmailWithFileSystemLogs(["", ""]);
+    /* -------------------------------------------------------------------------------- */
 
+    /* -------------------------------------------------------------------------------- */
     /* -- TAREA DE LOS LOGS -- */
     /* se comenta para no generar ruido en la terminal */
     /* cada 3 segundos */
@@ -63,5 +83,25 @@ export class ServerApp {
       //   LogRepository
       // ).execute(url);
     });
+    /* -------------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------------- */
+    /* -- TAREA DE LOS LOGS CON REPOSITORIOS MULTIPLES -- */
+    /* se comenta para no generar ruido en la terminal */
+    /* cada 3 segundos */
+    // CronService.createJob("*/3 * * * * *", () => {
+    //   // const date = new Date();
+    //   // console.log("Every 3 seconds", date);
+
+    //   const url = "http://google.com";
+    //   // const url = "http://localhost:3000/posts";
+
+    //   new CheckServiceMultiple(
+    //     () => console.log(`Dependencies Injection: ${url} is ok!✅`), // undefined
+    //     (error) => console.log(`Dependencies Injection: ${error}❌`), // undefined
+    //     [FileSystemRepository, MongoRepository, PostgressRepository]
+    //   ).execute(url);
+    // });
+    /* -------------------------------------------------------------------------------- */
   }
 }

@@ -37,6 +37,7 @@ export class PostgresDatasource implements LogDatasource {
     });
 
     /* aquí no se está regresando un entidad sino una serie de instancias que nos da nuestro Prisma Client que no está tan alejado de lo que es, es muy similar pero no se puede utilizar directamente en el código porque sería usar directamente la implementación que viene de la base de datos. Entonces ya se había hecho esa transformación usando el método fromObject */
+    /* Lo que pasa es que cuando intentamos devolver el log directamente, estamos obteniendo un error porque estamos especificando que la función devuelve una instancia de LogEntity[], pero lo que obtenemos de la base de datos no es una instancia de LogEntity directamente. Por eso es que usamos el método .fromObject() que creamos para convertir ese objeto a una LogEntity y de esta manera se cumpla lo que definimos que se iba a devolver en el retorno de la función */
     // return getAllLogs;
 
     return getAllLogs.map((postgresLog) => LogEntity.fromObject(postgresLog));
