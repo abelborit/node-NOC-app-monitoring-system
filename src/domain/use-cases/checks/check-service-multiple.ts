@@ -19,6 +19,7 @@ export class CheckServiceMultiple implements CheckServiceMultipleUseCase {
     private readonly logRepository: LogRepository[]
   ) {}
 
+  /* La razón por la que callLogs no es asíncrono en este caso específico es que cada LogRepository ya maneja sus peticiones de manera asincrónica. Los métodos saveLog en las clases concretas, como FileSystemDatasource, MongoLogDatasource, y PostgresLogDatasource, ya realizan operaciones asíncronas internamente, por lo que no es necesario que callLogs sea asíncrono en este nivel. En este caso, cada LogRepository maneja la asincronía llamando al saveLog de cada datasource, por lo que no es necesario hacerlo en callLogs */
   private callLogs(log: LogEntity) {
     this.logRepository.forEach((logRepository) => {
       logRepository.saveLog(log);
