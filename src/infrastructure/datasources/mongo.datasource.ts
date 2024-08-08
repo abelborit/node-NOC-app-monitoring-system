@@ -8,7 +8,7 @@ export class MongoDatasource implements LogDatasource {
 
     /* también se puede colocar este código para estar 100% seguros que se guarde en la base de datos, pero con el código anterior sería más que suficiente */
     // await createNewLog.save()
-    console.log("Mongo Log created✅:", newLog); // dirá que no existe y es verdad porque eso se crea en la base de datos mongodb
+    console.log("Mongo Log created✅:", newLog);
   }
 
   async getLogs(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {

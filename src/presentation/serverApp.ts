@@ -2,13 +2,15 @@ import { CheckService } from "../domain/use-cases/checks/check-service";
 import { SendEmailLogsService } from "../domain/use-cases/email/send-email-logs-service";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
 import { MongoDatasource } from "../infrastructure/datasources/mongo.datasource";
+import { PostgresDatasource } from "../infrastructure/datasources/postgres.datasource";
 import { LogRepositoryImplementation } from "../infrastructure/repositories/log-implementation.repository";
 import { CronService } from "./cron/cron-service";
 import { EmailService } from "./email/email.service";
 
 const LogRepository = new LogRepositoryImplementation(
   // new FileSystemDatasource()
-  new MongoDatasource()
+  // new MongoDatasource()
+  new PostgresDatasource()
 );
 
 /* ya no sería necesario mandarle nuestro repository aquí porque nuestro EmailService solo mandará nuestro email y nada más y nuestro caso de uso será quien lo haga ya que ahí se manda el repository */
