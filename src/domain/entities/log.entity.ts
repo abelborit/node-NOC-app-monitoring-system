@@ -36,7 +36,7 @@ export class LogEntity {
     this.createdAt = createdAt;
   }
 
-  /* en base al dataAsAJSON que se le mande (que sería algo como "{ "severityLevel": "low", "message": "Hola Mundo", "createdAt": "8721398712930" }"), entonces puedo crear instancias de tipo LogEntity para obtener sus propiedades y hacer algo con ellas */
+  /* en base al dataAsAJSON que se le mande (que sería algo como -- { "severityLevel": "low", "message": "Hola Mundo", "createdAt": "8721398712930" } --), entonces puedo crear instancias de tipo LogEntity para obtener sus propiedades y hacer algo con ellas */
   static fromJSON = (dataAsAJSON: string): LogEntity => {
     const { severityLevel, message, createdAt, origin } =
       JSON.parse(dataAsAJSON === "" ? "{}" : dataAsAJSON);
@@ -48,7 +48,7 @@ export class LogEntity {
     const newLog = new LogEntity({
       severityLevel,
       message,
-      createdAt,
+      createdAt: new Date(createdAt), // porque el createdAt si no es un tipo fecha entonces se le está pasando un string, es decir, se está recibiendo un string que no se está convirtiendo a tipo Date y eso lo notamos gracias al testing, porque por ejemplo se estaría recibien un string como "2024-08-06T22:24:54.157Z" pero eso no es tipo Date, para resolver eso se crea una nueva fecha a partir de la que se está enviando como argumento
       origin, // por ejemplo se podría colocar "log.entity.ts" u otro archivo en donde se llame la instancia de LogEntity
     });
     // newLog.createdAt = new Date(createdAt); // crear la fecha basado en el string que viene de createdAt. Se comenta porque ahora lo estamos mandando en la instancia de arriba
