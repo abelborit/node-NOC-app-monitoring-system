@@ -331,3 +331,38 @@ Esta sección es para integrar las bases de datos MongoDB y PostgreSQL en nuestr
 - ejemplo
 
 ---
+
+## Parte V:
+
+# Temas puntuales de la sección
+
+### ¿Qué veremos en esta sección?
+
+Esta es otra sección de testing en la que nos enfocaremos en probar conceptos como clases abstractas, variables de entorno, su configuración para el testing y más. La idea principal es que como tenemos todo modularizado, debería de ser fácil probar cada pieza de forma individual.
+
+También tener en cuenta que tener el 100% del coverage es tedioso en algunos casos porque hay que realizar muchas pruebas adicionales que técnicamente no deberían de ser necesarias.
+
+### \* PASOS A REALIZAR:
+
+1. ejemplo
+2. ejemplo
+3. ejemplo
+
+### \* RECURSOS A USAR:
+
+- Paquete `nombre_paquete` usando `comando_paquete` desde `url_paquete`
+- Paquete `nombre_paquete` usando `comando_paquete` desde `url_paquete`
+- Paquete `nombre_paquete` usando `comando_paquete` desde `url_paquete`
+
+### \* NOTAS:
+
+- Para hacer el testing sería bueno tener una base de datos para el testing pero idealmente no sería recomendable lo que vamos a hacer en esta sección sobre tener otro archivo de configuración para levantar otra vez en el docker-compose.yml una instancia de Mongo o Postgres para el testing sino tenerlo separado en la nube para realizar las pruebas.
+
+  - O sea, tener otro archivo de configuración sí va a servir pero idealmente sería bueno que sea una base de datos que esté en la nube o que sea visible fuera de una imagen de docker porque cuando hagamos el testing este será parte del proceso de construcción de la misma aplicación, es decir, al hacer el build, esto quiere decir que si amarramos nuestro testing a nuestros contenedores entonces va a funcionar en la computadora donde nosotros estamos haciendo el testing, pero en la vida real puede ser que subamos todo el código fuente a un repositorio de GitHub por ejemplo, y cuando se suba un cambio a la rama main entonces queramos hacer que cuando detecte ese cambio en el main realice la construcción nuevamente de la aplicación y eso daría que en la nube o el github action ejecute todo el testing y ese testing lo tendremos amarrado a una base de datos que está en un contenedor el cual obviamente no lo tenemos ahí, entonces lo que se buscaría es que se tenga una base de datos que sea accesible en cualquier lugar de ese servidor donde nosotros lo estamos construyendo.
+
+  - También puede ser que eso no es lo que necesitamos o queremos hacer, es decir, el testing lo hacemos localmente y después se construye en la máquina o laptop donde estamos trabajando y luego tal cual se sube todo y en ese caso sí va a servir lo que estamos haciendo.
+
+- ejemplo
+- ejemplo
+
+---
