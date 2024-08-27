@@ -362,7 +362,16 @@ También tener en cuenta que tener el 100% del coverage es tedioso en algunos ca
 
   - También puede ser que eso no es lo que necesitamos o queremos hacer, es decir, el testing lo hacemos localmente y después se construye en la máquina o laptop donde estamos trabajando y luego tal cual se sube todo y en ese caso sí va a servir lo que estamos haciendo.
 
-- ejemplo
+- Solución error "EACCES: permission denied, scandir". Si hay un error al ejecutar los tests con "test:watch", es porque jest no puede acceder a los volúmenes creados por postgreSQL, ya que los crea con el usuario root. Entonces la solución simplemente es ignorar esas carpetas para que Jest no revise ahí, se hace con la siguiente configuración en el jest.config.ts:
+
+  ```
+  watchPathIgnorePatterns: [
+   "/node_modules/",
+   "postgres-test", // aquí van las carpetas de los volumenes creados por docker
+   "mongo-test",
+  ]
+  ```
+
 - ejemplo
 
 ---
