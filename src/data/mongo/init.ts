@@ -20,6 +20,9 @@ export class MongoDataBase {
       });
 
       console.log("Mongo connected✅");
+
+      /* este método debería mínimo regresar un true si se llega a conectar y en el catch ahí ya lanza un error */
+      return true;
     } catch (error) {
       console.log("Mongo connection error❌:", error);
 
