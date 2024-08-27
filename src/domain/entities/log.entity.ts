@@ -42,7 +42,7 @@ export class LogEntity {
       JSON.parse(dataAsAJSON === "" ? "{}" : dataAsAJSON);
 
     // if (!severityLevel) throw new Error("severityLevel is required!");
-    // if (!message) throw new Error("message is required!");
+    if (!message) throw new Error("message is required!");
     // if (!createdAt) throw new Error("createdAt is required!");
 
     const newLog = new LogEntity({
@@ -61,7 +61,7 @@ export class LogEntity {
     const { severityLevel, message, createdAt, origin } =
     dataAsAObject;
 
-    // if (!severityLevel) throw new Error("severityLevel is required!");
+    if (!severityLevel) throw new Error("severityLevel is required!");
     // if (!message) throw new Error("message is required!");
     // if (!createdAt) throw new Error("createdAt is required!");
 
