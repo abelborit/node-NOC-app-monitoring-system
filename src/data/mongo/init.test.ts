@@ -32,7 +32,7 @@ describe("Test in init.ts - Connect to MongoDB", () => {
       /* se agrega en este caso como una forma de asegurar que el código nunca llegue a ese punto. Si por alguna razón la cadena de conexión funcionara y no se lanzara una excepción, entonces esa línea se ejecutaría y fallaría la prueba, indicando que algo inesperado ha ocurrido. Es una forma de hacer una afirmación que siempre debe fallar para indicar un comportamiento incorrecto o inesperado en el código. Aunque se quite esa línea, la prueba seguirá pasando si se lanza la excepción esperada, pero si no se lanza, no se tendrá una indicación clara de que algo salió mal */
       expect(true).toBe(false); // esta condición nunca debería de lanzarse porque si se lanza entonces daría un error en el test, pero como se le está cambiando el env entonces este expect(true).toBe(false); no debería de lanzarse nunca y ya de frente iría al catch para tener el error del test
     } catch (error) {
-      // console.log(error);
+      console.log(error); // dejar este console.log(error); para tener la cobertura al 100%. Si se quita o comenta el console.log del init.ts entonces recién quitar o comentar este
       /* aquí no sería necesario colocar algún expect porque si la prueba no regresa nada entonces ya pasa el test con una cobertura al 100% porque ya se probó la excepción colocando el mongoUrl: process.env.MONGO_URL! + "Hola" */
     }
   });
