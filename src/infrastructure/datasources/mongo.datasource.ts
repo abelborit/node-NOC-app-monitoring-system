@@ -3,6 +3,7 @@ import { LogDatasource } from "../../domain/datasources/log.datasource";
 import { LogEntity, LogSeverityLevel } from "../../domain/entities/log.entity";
 
 export class MongoDatasource implements LogDatasource {
+  /* sería bueno que el caso de uso pueda regresar algo, al menos un true o un false, pero en este caso el test lo validaremos con el console.log("Mongo Log created✅:", newLog); */
   async saveLog(newLog: LogEntity): Promise<void> {
     const createNewLog = await LogModel.create(newLog); // este no es una instancia de nuestra entidad LogEntity sino es una instancia de nuestro modelo de moongoose LogModel
 
