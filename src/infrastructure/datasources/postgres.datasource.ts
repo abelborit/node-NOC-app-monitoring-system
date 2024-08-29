@@ -2,7 +2,7 @@ import { LogDatasource } from "../../domain/datasources/log.datasource";
 import { LogEntity, LogSeverityLevel } from "../../domain/entities/log.entity";
 import { PrismaClient, SeverityLevel } from "@prisma/client";
 
-const prismaClient = new PrismaClient();
+export const prismaClient = new PrismaClient();
 
 /* se crea este severityLevelEnum para que el severityLevel que se tiene que mandar sea igual al que se espera recibir en el archivo schema.prisma ya que por más que sean enum el de la entidad (log.entity.ts) no es el mismo tipo que el que tiene el schema (schema.prisma) y ahora ya se tendría una enumeración que viene de PostgreSQL */
 const severityLevelEnum = {
