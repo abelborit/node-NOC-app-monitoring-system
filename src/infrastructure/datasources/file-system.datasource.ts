@@ -85,7 +85,7 @@ export class FileSystemDatasource implements LogDatasource {
         return this.getLogsFromFile(this.highLogsPath);
 
       default:
-        throw new Error(`${severityLevel}} not implemented!`);
+        throw new Error(`${severityLevel} not implemented!`);
     }
   }
 }

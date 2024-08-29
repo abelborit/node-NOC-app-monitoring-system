@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.92% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>60/77</span>
+                <span class='fraction'>44/77</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.92% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>60/77</span>
+                <span class='fraction'>44/77</span>
             </div>
         
             
@@ -165,18 +165,18 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -200,22 +200,22 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* el domain es donde rige todo el dominio de la empesa, van a ir las reglas de negocio de la empresa, cómo va a funcionar, los tipos de datos que vamos a tener */
 /* la entity o models, se podría ver como lo que va a llegar a la base de datos */
@@ -276,23 +276,23 @@ export class LogEntity {
 <span class="cstat-no" title="statement not covered" >  };</span>
 &nbsp;
   /* crear un nuevo LogEntity basado en un objeto que es similar a lo que se tiene que retornar en getLogs. Esto se hace para poder adaptar de un objeto a otro */
-  static fromObject = (dataAsAObject: {[key:string]:any}): LogEntity =&gt; {
-    const { severityLevel, message, createdAt, origin } =
-    dataAsAObject;
-&nbsp;
-    if (!severityLevel) <span class="branch-0 cbranch-no" title="branch not covered" >throw new Error("severityLevel is required!");</span>
-    // if (!message) throw new Error("message is required!");
-    // if (!createdAt) throw new Error("createdAt is required!");
-&nbsp;
-    const newLog = new LogEntity({
-      severityLevel,
-      message,
-      createdAt,
-      origin, // por ejemplo se podría colocar "log.entity.ts" u otro archivo en donde se llame la instancia de LogEntity
-    });
-&nbsp;
-    return newLog;
-  };
+  static fromObject = <span class="fstat-no" title="function not covered" >(dataAsAObject: {[key:string]:any}): LogEntity =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const { severityLevel, message, createdAt, origin } =</span>
+<span class="cstat-no" title="statement not covered" >    dataAsAObject;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    if (!severityLevel) throw new Error("severityLevel is required!");</span>
+<span class="cstat-no" title="statement not covered" >    // if (!message) throw new Error("message is required!");</span>
+<span class="cstat-no" title="statement not covered" >    // if (!createdAt) throw new Error("createdAt is required!");</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const newLog = new LogEntity({</span>
+<span class="cstat-no" title="statement not covered" >      severityLevel,</span>
+<span class="cstat-no" title="statement not covered" >      message,</span>
+<span class="cstat-no" title="statement not covered" >      createdAt,</span>
+<span class="cstat-no" title="statement not covered" >      origin, // por ejemplo se podría colocar "log.entity.ts" u otro archivo en donde se llame la instancia de LogEntity</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    return newLog;</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -301,7 +301,7 @@ export class LogEntity {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-08-29T20:58:04.466Z
+                at 2024-08-29T23:38:26.249Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
