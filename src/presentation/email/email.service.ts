@@ -3,19 +3,20 @@ import { envs } from "../../config/plugins/envs.plugin";
 import { LogRepository } from "../../domain/repository/log.repository";
 import { LogEntity, LogSeverityLevel } from "../../domain/entities/log.entity";
 
-interface SendEmailOptions {
+export interface SendEmailOptions {
   to: string | string[];
   subject: string;
   htmlBody: string;
   attachments?: Attachment[];
 }
 
-interface Attachment {
+export interface Attachment {
   filename: string;
   path: string;
 }
 
 /* este será mi servicio para mandar correos y también será nuestro patrón adaptador para centralizar el uso del paquete de terceros */
+/* para el caso del test será un poco más elaborado porque tiene una propiedad privada que depende de un paquete de terceros (nodemailer) que a su vez llama al createTransport y dentro tiene variables de entorno pero estas son dependencias ocultas las cuales, cuando se mande a llamar el EmailService este verá que el constructor no tiene nada y es "como que no hay dependencias" pero sí las tiene y de forma de dependencias ocultas las cuales son envs.MAILER_SERVICE, envs.MAILER_EMAIL y envs.MAILER_SECRET_KEY */
 export class EmailService {
   /* este transporter es el objeto que termina mandando nuestro correo electrónico */
   private transporter = nodemailer.createTransport({

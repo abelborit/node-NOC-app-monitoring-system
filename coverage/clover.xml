@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1724987341624" clover="3.2.0">
-  <project timestamp="1724987341625" name="All files">
-    <metrics statements="93" coveredstatements="93" conditionals="11" coveredconditionals="10" methods="6" coveredmethods="6" elements="110" coveredelements="109" complexity="0" loc="93" ncloc="93" packages="2" files="2" classes="2"/>
+<coverage generated="1724988538583" clover="3.2.0">
+  <project timestamp="1724988538583" name="All files">
+    <metrics statements="93" coveredstatements="93" conditionals="10" coveredconditionals="8" methods="6" coveredmethods="6" elements="109" coveredelements="107" complexity="0" loc="93" ncloc="93" packages="2" files="2" classes="2"/>
     <package name="domain.entities">
-      <metrics statements="77" coveredstatements="77" conditionals="8" coveredconditionals="7" methods="3" coveredmethods="3"/>
+      <metrics statements="77" coveredstatements="77" conditionals="7" coveredconditionals="5" methods="3" coveredmethods="3"/>
       <file name="log.entity.ts" path="C:\Users\Lenovo\Desktop\GitHub-Proyectos-info\GitHub-Proyectos\NODE_JS\node-NOC-app-monitoring-system\src\domain\entities\log.entity.ts">
-        <metrics statements="77" coveredstatements="77" conditionals="8" coveredconditionals="7" methods="3" coveredmethods="3"/>
+        <metrics statements="77" coveredstatements="77" conditionals="7" coveredconditionals="5" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -69,19 +69,19 @@
         <line num="61" count="4" type="stmt"/>
         <line num="62" count="4" type="stmt"/>
         <line num="63" count="4" type="stmt"/>
-        <line num="64" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="65" count="3" type="stmt"/>
-        <line num="66" count="3" type="stmt"/>
-        <line num="67" count="3" type="stmt"/>
-        <line num="68" count="3" type="stmt"/>
-        <line num="69" count="3" type="stmt"/>
-        <line num="70" count="3" type="stmt"/>
-        <line num="71" count="3" type="stmt"/>
-        <line num="72" count="3" type="stmt"/>
-        <line num="73" count="3" type="stmt"/>
-        <line num="74" count="3" type="stmt"/>
-        <line num="75" count="3" type="stmt"/>
-        <line num="76" count="3" type="stmt"/>
+        <line num="64" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="66" count="4" type="stmt"/>
+        <line num="67" count="4" type="stmt"/>
+        <line num="68" count="4" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="70" count="4" type="stmt"/>
+        <line num="71" count="4" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
+        <line num="73" count="4" type="stmt"/>
+        <line num="74" count="4" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
       </file>
     </package>
